@@ -1,6 +1,6 @@
 cask "sentinel" do
-  version "0.18.0"
-  sha256 "0a2390cf0bfae85ecf09f297c5bcb9a4673b315375bc02f8dba0bf83acf61dbe"
+  version "0.18.4"
+  sha256 "7ce71e5850e46e71814ba92d0ae6596bb0b89d184b7b8a59e9921e0d4d4bd72f"
 
   url "https://releases.hashicorp.com/sentinel/#{version}/sentinel_#{version}_darwin_amd64.zip"
   name "Sentinel"
@@ -9,8 +9,7 @@ cask "sentinel" do
 
   livecheck do
     url "https://docs.hashicorp.com/sentinel/downloads"
-    strategy :page_match
-    regex(%r{href=.*?/sentinel_(\d+(?:\.\d+)*)_darwin_amd64\.zip}i)
+    regex(%r{href=.*?/sentinel[._-]?v?(\d+(?:\.\d+)+)[._-]darwin[._-]amd64\.zip}i)
   end
 
   binary "sentinel"

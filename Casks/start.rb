@@ -1,12 +1,18 @@
 cask "start" do
-  version "0.292.3-89"
-  sha256 "1708e1818d0a67afebdac5e089c48fcc77d51e0f132b11c7808bad861273dba5"
+  version "0.298.1-123"
+  sha256 "2a6db3a84eac4b543c720ab9454d576eed511ae40b4a660b7417ef12b5e0f2d5"
 
-  url "https://imgcdn.start.qq.com/cdn/mac.client/installer/START-Installer-#{version}.dmg?"
+  url "https://imgcdn.start.qq.com/cdn/mac.client/installer/START-Installer-#{version}.dmg"
   name "START"
   name "腾讯云游戏"
   desc "Tencent cloud gaming platform"
   homepage "https://start.qq.com/"
+
+  livecheck do
+    url "https://api.start.qq.com/cfg/get?biztypes=macos-update-info"
+    strategy :page_match
+    regex(%r{.*/START-Installer-([.\d\-]+)\.dmg}i)
+  end
 
   auto_updates true
   depends_on macos: ">= :sierra"

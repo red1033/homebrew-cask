@@ -1,6 +1,6 @@
 cask "mirrorop" do
-  version "2.5.3.78"
-  sha256 "59279a53f344ec0b6edb36015164497107a3fea1d55d337d2bf7185ee3bb5b01"
+  version "2.5.4.90"
+  sha256 "eb16715e0953956bb9668985366c56bfb1af1619bf34b8184b3e872575146d4a"
 
   url "https://www.barco.com/services/website/en/TdeFiles/Download?FileNumber=R33050100&TdeType=3&MajorVersion=#{version.major}&MinorVersion=#{version.minor}&PatchVersion=#{version.patch}&BuildVersion=#{version.split(".")[-1]}"
   name "MirrorOp Sender"
@@ -9,8 +9,7 @@ cask "mirrorop" do
 
   livecheck do
     url "https://www.barco.com/en/support/software/R33050100"
-    strategy :page_match
-    regex(/MirrorOp\s*Mac\s*Sender\s*v?(\d+(?:\.\d+)*)/i)
+    regex(/MirrorOp\s*Mac\s*Sender\s*v?(\d+(?:\.\d+)+)/i)
   end
 
   app "MirrorOp.app"

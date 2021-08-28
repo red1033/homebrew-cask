@@ -1,6 +1,6 @@
 cask "prey" do
-  version "1.9.10"
-  sha256 "ad00619da03ab4b8f8f777cbb0f89189e55ba475fc56dd358bb60b6b49746322"
+  version "1.9.13"
+  sha256 "5a0c37e39a902ef63d2c7926f8fabc4aa5e2c06f51bf0dc36f0b40980773f810"
 
   url "https://downloads.preyproject.com/prey-client-releases/node-client/#{version}/prey-mac-#{version}-x64.pkg"
   name "Prey"
@@ -14,6 +14,10 @@ cask "prey" do
 
   pkg "prey-mac-#{version}-x64.pkg"
 
+  preflight do
+    ENV["API_KEY"] = ENV["HOMEBREW_PREY_SETUP_API_KEY"]
+  end
+
   uninstall pkgutil:   "com.prey.agent",
             launchctl: "com.prey.agent"
 
@@ -25,6 +29,6 @@ cask "prey" do
 
     The API key may be set as an environment variable as follows:
 
-      HOMEBREW_NO_ENV_FILTERING=1 API_KEY="foobar123" brew install --cask prey
+      HOMEBREW_PREY_SETUP_API_KEY="foobar123" brew install --cask prey
   EOS
 end

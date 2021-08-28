@@ -1,8 +1,9 @@
 cask "hook" do
-  version "2.2.2,2021-03"
-  sha256 "75acc69d06d68082d5fad6679b57e0a06e46dddffef921e6a02cabb6221e233e"
+  version "3.2.1,2021.08"
+  sha256 "f5aee8d4ae6d2c1279f249b2d18656c96b91de3a2c1c5a8fe557554e1bf9aee1"
 
-  url "https://hookproductivity.com/wp-content/uploads/#{version.after_comma.tr("-", "/")}/Hook-productivity-app-#{version.before_comma}.dmg"
+  url "https://hookproductivity.com/wp-content/uploads/#{version.after_comma.major}/#{version.after_comma.minor}/Hook-productivity-app-#{version.before_comma}.dmg_.zip",
+      user_agent: :fake
   name "Hook"
   desc "Link and retrieve key information"
   homepage "https://hookproductivity.com/"
@@ -10,8 +11,8 @@ cask "hook" do
   livecheck do
     url :homepage
     strategy :page_match do |page|
-      match = page.match(%r{href=.*?/(\d+)/(\d+)/Hook-productivity-app-(\d+(?:\.\d+)*)\.dmg}i)
-      "#{match[3]},#{match[1]}-#{match[2]}"
+      match = page.match(%r{href=.*?/(\d+)/(\d+)/Hook-productivity-app-(\d+(?:\.\d+)*(?:-\d+)*)\.dmg}i)
+      "#{match[3]},#{match[1]}.#{match[2]}"
     end
   end
 

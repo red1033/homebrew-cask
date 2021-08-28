@@ -1,12 +1,12 @@
 cask "remember-the-milk" do
-  version "1.3.8"
+  version "1.3.11"
 
   if Hardware::CPU.intel?
-    sha256 "c85c235982229eb48b1fa61f0a0e57e14cf5637c0ae1a2a2e4b735fe4b829593"
+    sha256 "6bab4f70f87a95764e646788bef3449877a3938768b5a9b92ade946b348c95d2"
 
     url "https://www.rememberthemilk.com/download/mac/RememberTheMilk-#{version}-x64.zip"
   else
-    sha256 "30f6e82ff782914d49ac1b8242c6d7a933379fbad9b73b269e7e073826b68df8"
+    sha256 "5585a2ff3d09867c870c8255dc91e3235012f2f0dbeac3e38beeab6f0cee0f2b"
 
     url "https://www.rememberthemilk.com/download/mac/RememberTheMilk-#{version}-arm64.zip"
   end
@@ -17,9 +17,10 @@ cask "remember-the-milk" do
 
   livecheck do
     url "https://www.rememberthemilk.com/services/mac/"
-    strategy :page_match
-    regex(%r{<b>Version:</b>\s(\d+(?:\.\d+)*)}i)
+    regex(%r{<b>Version:</b>\s*(\d+(?:\.\d+)+)}i)
   end
+
+  depends_on macos: ">= :yosemite"
 
   app "Remember The Milk.app"
 

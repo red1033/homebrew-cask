@@ -1,8 +1,8 @@
 cask "beatunes" do
-  version "5.2.21"
-  sha256 "6d4efb8314815d5bed0e1a4ffba3061a23475f7b43a12998d9fa2c6cdf89375f"
+  version "5.2.24"
+  sha256 "4b996430797fa1439177402ae2ebf71ad98ccd79516c9c1c4557d78614c0b23b"
 
-  url "http://coxy.beatunes.com/download/beaTunes-#{version.dots_to_hyphens}.dmg"
+  url "https://coxy.beatunes.com/download/beaTunes-#{version.dots_to_hyphens}.dmg"
   name "beaTunes"
   desc "Analyze, inspect, and play songs"
   homepage "https://www.beatunes.com/"
@@ -15,7 +15,7 @@ cask "beatunes" do
     end
   end
 
-  depends_on macos: ">= :sierra"
+  depends_on macos: ">= :el_capitan"
 
   app "beaTunes#{version.major}.app"
 

@@ -1,12 +1,12 @@
 cask "ray" do
-  version "1.14.7"
+  version "1.17.0"
 
   if Hardware::CPU.intel?
-    sha256 "799798cf31ff96924db32b14930fb8ab302e0ee16f084e2d388b378f4b13f708"
+    sha256 "b6e62436517e77e854a499106bcf76b4b6849acf4c32580f73a62cde164cddc0"
     url "https://ray-app.s3.eu-west-1.amazonaws.com/Ray-#{version}.dmg",
         verified: "ray-app.s3.eu-west-1.amazonaws.com/"
   else
-    sha256 "f9ee5e0ffaf4ac00bef5d2d9c27b9cdd1210b9bf1d1d1a29419aa885f8c13749"
+    sha256 "342661b8b191023173c818751106004034ef0cbd531800f7fae459bb7af8e784"
     url "https://ray-app.s3.eu-west-1.amazonaws.com/arm64/Ray-#{version}-arm64.dmg",
         verified: "ray-app.s3.eu-west-1.amazonaws.com/"
   end

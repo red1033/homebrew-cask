@@ -1,6 +1,6 @@
 cask "texmaker" do
-  version "5.0.4"
-  sha256 "3ff64e0993b91fd19b5ecb8f48c2004e86bf125b2334aca5c2a20abef27424d3"
+  version "5.1.1"
+  sha256 "4170752cbabb9e58124bd4b807248633e5f7e82e70d633654f16e544931ccf3e"
 
   url "https://www.xm1math.net/texmaker/assets/files/texmaker-#{version}.dmg"
   name "Texmaker"

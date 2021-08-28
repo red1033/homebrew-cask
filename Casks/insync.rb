@@ -1,6 +1,6 @@
 cask "insync" do
-  version "3.3.9.40955"
-  sha256 "24a169d1a1684b17915066de041bd6ba5d598b671f3293c34a219fdff4df6c68"
+  version "3.5.1.50115"
+  sha256 "ce689bc34914a01a28b3a9659e0c5a653239cdadb7ea565cc89bda906e4045f2"
 
   url "http://s.insynchq.com/builds/Insync-#{version}.dmg"
   name "Insync"
@@ -9,8 +9,7 @@ cask "insync" do
 
   livecheck do
     url :homepage
-    strategy :page_match
-    regex(/Version\s*(\d+(?:\.\d+)*)/i)
+    regex(%r{/Insync[._-]?v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   auto_updates true

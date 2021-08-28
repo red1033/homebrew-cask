@@ -1,6 +1,6 @@
 cask "spyder" do
-  version "5.0.1"
-  sha256 "070690355d7503fd50fbd225b345e366d34de6f07f7e3c169fdf205886d58edb"
+  version "5.1.1"
+  sha256 "643fd900e985c6e14e2bffbc758e949304ac14d7d26ebebd64c0ca1148aeae7d"
 
   url "https://github.com/spyder-ide/spyder/releases/download/v#{version}/Spyder.dmg",
       verified: "github.com/spyder-ide/spyder/"
@@ -12,6 +12,8 @@ cask "spyder" do
     url :url
     strategy :github_latest
   end
+
+  depends_on macos: ">= :catalina"
 
   app "Spyder.app"
 end

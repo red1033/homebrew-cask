@@ -1,11 +1,13 @@
 cask "rubymine" do
-  version "2021.1.1,211.7142.41"
+  version "2021.2.1,212.5080.58"
 
   if Hardware::CPU.intel?
-    sha256 "dab2fdf132981de92818ebdc235874ee507c1e58eb68574f42791b2c0927edef"
+    sha256 "d7460e6d18f1f65e955735da844e4ea8ae0c0b00c9d1fccf2b64beff57b531b1"
+
     url "https://download.jetbrains.com/ruby/RubyMine-#{version.before_comma}.dmg"
   else
-    sha256 "0cd0d267d54e1f8ed14595a055fe8041a811d42fa4ae3b1d7f091278042741ae"
+    sha256 "03b527103ded20fb6afc403794e5e88bf1953f528aca8b2e41cea8d04f7adee6"
+
     url "https://download.jetbrains.com/ruby/RubyMine-#{version.before_comma}-aarch64.dmg"
   end
 
@@ -16,13 +18,14 @@ cask "rubymine" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=RM&latest=true&type=release"
     strategy :page_match do |page|
-      version = page.match(/"version":"(\d+(?:\.\d+)*)/i)
-      build = page.match(/"build":"(\d+(?:\.\d+)*)/i)
-      "#{version[1]},#{build[1]}"
+      JSON.parse(page)["RM"].map do |release|
+        "#{release["version"]},#{release["build"]}"
+      end
     end
   end
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "RubyMine.app"
 

@@ -1,6 +1,6 @@
 cask "ridibooks" do
-  version "0.9.1"
-  sha256 "f027c9609c56345a27105bab272790a0e213bb7c67c480124fb93376413023a3"
+  version "0.9.5"
+  sha256 "998e1b11e54fcf4e20ac29029142306106d3418a9e259f5c233e66e2ce8f0cfc"
 
   url "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks-#{version}.dmg",
       verified: "viewer-ota.ridicdn.net/pc_electron/"

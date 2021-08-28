@@ -1,6 +1,6 @@
 cask "dingtalk" do
-  version "6.0.12.5"
-  sha256 "024493a527900f554de1851a6c4377c77ddef8b24c83bf81a257968653cee226"
+  version "6.0.22.7"
+  sha256 "8ef84199f75ac6a80d444d6c38d6100a3578c14cdcc78da2959ac67c7f22b186"
 
   url "https://dtapp-pub.dingtalk.com/dingtalk-desktop/mac_dmg/Release/DingTalk_v#{version}.dmg"
   name "DingTalk"
@@ -11,7 +11,6 @@ cask "dingtalk" do
   livecheck do
     url "https://www.dingtalk.com/mac/d/"
     strategy :header_match
-    regex(/DingTalk_v(\d+(?:\.\d+)*)\.dmg/i)
   end
 
   auto_updates true

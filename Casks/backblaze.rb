@@ -1,8 +1,8 @@
 cask "backblaze" do
-  version "7.0.2.494"
-  sha256 "98edc89d53963bc3ab10f411b9ba1911e5d0261a108abef6c3cb4a2a0dec95c9"
+  version "8.0.1.534"
+  sha256 :no_check
 
-  url "https://secure.backblaze.com/api/install_backblaze?file=bzinstall-mac-#{version}.zip"
+  url "https://secure.backblaze.com/mac/install_backblaze.dmg"
   name "Backblaze"
   desc "Data backup and storage service"
   homepage "https://backblaze.com/"
@@ -15,7 +15,7 @@ cask "backblaze" do
 
   auto_updates true
 
-  installer manual: "bzdoinstall.app"
+  installer manual: "Backblaze Installer.app"
 
   uninstall launchctl: [
     "com.backblaze.bzserv",
@@ -23,14 +23,14 @@ cask "backblaze" do
   ],
             delete:    [
               "#{appdir}/Backblaze.app",
+              "/Library/Backblaze.bzpkg",
+              "/Library/Logs/DiagnosticReports/bzbmenu_*.*_resource.diag",
               "/Library/PreferencePanes/BackblazeBackup.prefPane",
             ]
 
   zap trash: [
-    "/Library/Backblaze.bzpkg",
-    "~/Library/Preferences/com.backblaze.bzbmenu.plist",
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.backblaze.*.sfl*",
-    "/Library/Logs/DiagnosticReports/bzbmenu_*.*_resource.diag",
+    "~/Library/Preferences/com.backblaze.bzbmenu.plist",
     "~/Library/Logs/BackblazeGUIInstaller",
   ]
 end

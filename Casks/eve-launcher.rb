@@ -1,6 +1,6 @@
 cask "eve-launcher" do
-  version "1892908"
-  sha256 "170f3ed1f4ca45e6d58fa17428e52cdc3df86b5d5f8e12ead8151c0462ef421e"
+  version "1924823"
+  sha256 "29be2f63874d742f1ac6f40b084a9fb2f4c24d0ad8e0e84a59e26063af9f5e1e"
 
   url "https://binaries.eveonline.com/EveLauncher-#{version}.dmg"
   name "Eve Online"
@@ -9,17 +9,17 @@ cask "eve-launcher" do
 
   livecheck do
     url "https://launcher.eveonline.com/launcherVersions.json"
-    strategy :page_match
     regex(/"mac"\s*:\s*(\d+)/i)
   end
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "EVE Launcher.app"
 
   zap trash: [
-    "~/Library/Preferences/com.ccpgames.EVE.plist",
-    "~/Library/Application Support/EVE Online",
     "~/Library/Application Support/CCP/EVE",
+    "~/Library/Application Support/EVE Online",
+    "~/Library/Preferences/com.ccpgames.EVE.plist",
   ]
 end

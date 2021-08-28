@@ -1,6 +1,6 @@
 cask "roboform" do
-  version "9.0.9"
-  sha256 "c221f3531d1b273cf3e637612388223aee703558706855d2ed5ac2b68444213d"
+  version "9.1.2"
+  sha256 "ed3dc4845a784ce8247dc1cc242b41884bcf58319ba7659da24b3765e23e7a5e"
 
   url "https://www.roboform.com/dist/roboform-mac-v#{version.major}.dmg"
   name "RoboForm"
@@ -9,8 +9,7 @@ cask "roboform" do
 
   livecheck do
     url "https://www.roboform.com/news-mac"
-    strategy :page_match
-    regex(/Version\s*(\d+(?:\.\d+)*)/i)
+    regex(/Version\s*(\d+(?:\.\d+)+)/i)
   end
 
   auto_updates true

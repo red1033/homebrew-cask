@@ -1,9 +1,17 @@
 cask "stack-stack" do
-  version "3.30.4"
-  sha256 "61e43c50bb9f162287c122d4e5b60880ec3fa07d7b10f11e5487c9e30f3bc786"
+  version "3.34.2"
 
-  url "https://stack-v1.s3.amazonaws.com/builds/prod/Stack-#{version}.dmg",
-      verified: "stack-v1.s3.amazonaws.com/"
+  if Hardware::CPU.intel?
+    sha256 "53da0601c9fb7dcaa509c61a5cfbfd702f5875dbba081d9ed64b9257ff7711e0"
+
+    url "https://stack-v1.s3.amazonaws.com/builds/prod/Stack-#{version}.dmg",
+        verified: "stack-v1.s3.amazonaws.com/"
+  else
+    sha256 "871762f6bb04f45f9924222f24a4be4808e979b5586a69c779224ef294f3b557"
+
+    url "https://binaries.getstack.app/builds/prod/mac/arm64/Stack%20#{version}-arm64.dmg"
+  end
+
   name "Stack"
   desc "Workspace to manage all your productivity apps from one place"
   homepage "https://getstack.app/"

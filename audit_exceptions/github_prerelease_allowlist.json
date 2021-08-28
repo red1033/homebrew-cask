@@ -8,6 +8,7 @@
   "duplicati": "all",
   "extraterm": "all",
   "freetube": "all",
+  "ghdl": "all",
   "graphsketcher": "all",
   "haptickey": "all",
   "imagemin": "all",
@@ -24,11 +25,13 @@
   "ql-ansilove": "all",
   "profilecreator": "all",
   "qdesktop": "all",
+  "seaglass": "all",
   "servpane": "all",
   "shadowsocksx-ng-r": "all",
   "splitshow": "all",
   "steveschow-gfxcardstatus": "all",
   "themeengine": "all",
   "toggl-track": "all",
+  "vial": "all",
   "xit": "all"
 }

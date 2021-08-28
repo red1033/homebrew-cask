@@ -1,12 +1,17 @@
 cask "utm" do
-  version "2.0.27"
-  sha256 "aebeb2e756824cd8a9a12596c37b3294865b5e35c6413aa9ea3f46685715db4a"
+  version "2.1.2"
+  sha256 "df5e08b78b8b32aa2184b10a9a96c7ee6ce2a61a5b9a9d45432c1f6c804dad51"
 
   url "https://github.com/utmapp/UTM/releases/download/v#{version}/UTM.dmg",
       verified: "github.com/utmapp/UTM/"
   name "UTM"
   desc "Virtual machines UI using QEMU"
   homepage "https://getutm.app/"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   app "UTM.app"
 

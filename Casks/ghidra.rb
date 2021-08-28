@@ -1,16 +1,18 @@
 cask "ghidra" do
-  version "9.2.3,20210325"
-  sha256 "9019c78f8b38d68fd40908b040466974a370e26ba51b2aaeafc744171040f714"
+  version "10.0.2,20210804"
+  sha256 "5534521ccb958b5cde04fc5c51bfa2918d475af49e94d372fa7c117cc9fe804b"
 
-  url "https://www.ghidra-sre.org/ghidra_#{version.before_comma}_PUBLIC_#{version.after_comma}.zip"
+  url "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_#{version.before_comma}_build/ghidra_#{version.before_comma}_PUBLIC_#{version.after_comma}.zip",
+      verified: "github.com/NationalSecurityAgency/ghidra/"
   name "Ghidra"
+  desc "Software reverse engineering (SRE) suite of tools"
   homepage "https://www.ghidra-sre.org/"
 
   livecheck do
-    url "https://ghidra-sre.org/"
+    url "https://github.com/NationalSecurityAgency/ghidra/releases/latest"
     strategy :page_match do |page|
-      match = page.match(/href=.*?ghidra[._-](\d+(?:\.\d+)*)[._-]PUBLIC[._-](\d+)\.zip/i)
-      "#{match[1]},#{match[2]}"
+      page.scan(/href=.*?ghidra[._-]v?(\d+(?:\.\d+)+)[._-]PUBLIC[._-](\d+)\.zip/i)
+          .map { |matches| "#{matches[0]},#{matches[1]}" }
     end
   end
 

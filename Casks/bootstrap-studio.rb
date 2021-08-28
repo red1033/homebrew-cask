@@ -1,6 +1,6 @@
 cask "bootstrap-studio" do
-  version "5.6.2"
-  sha256 "2940599008dbb8488594274848696d8c1a7106250ddf89bb99ebe55f31be1dc0"
+  version "5.8.2"
+  sha256 "cd204a471d42cbed7f95618a97f307378e7d1ff6d0ea8cee90041cb6aa62c8f7"
 
   url "https://bootstrapstudio.io/releases/desktop/#{version}/Bootstrap%20Studio.dmg"
   name "Bootstrap Studio"
@@ -9,8 +9,7 @@ cask "bootstrap-studio" do
 
   livecheck do
     url "https://bootstrapstudio.io/pages/releases/"
-    strategy :page_match
-    regex(/Version\s*(\d+(?:\.\d+)*)/i)
+    regex(/Version\s*(\d+(?:\.\d+)+)/i)
   end
 
   auto_updates true

@@ -1,6 +1,6 @@
 cask "spectx" do
-  version "1.4.75"
-  sha256 "4658f7578fd95d9c3817620d444cec1b0d6647d6b88ecca3f051f0b5f45fb655"
+  version "1.4.83"
+  sha256 "4ede94560d9dcc8811efe62c27165f2834f281ad44bb7908eb02abb528b0a1da"
 
   url "https://download.spectx.com/versions/#{version}/SpectXDesktop-v#{version}.dmg"
   name "SpectX Desktop"
@@ -9,8 +9,7 @@ cask "spectx" do
 
   livecheck do
     url "https://www.spectx.com/get-spectx"
-    strategy :page_match
-    regex(%r{href=.*?/SpectXDesktop-v?(\d+(?:\.\d+)*)\.dmg}i)
+    regex(%r{href=.*?/SpectXDesktop[._-]?v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   app "SpectXDesktop.app"

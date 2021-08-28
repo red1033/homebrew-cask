@@ -1,6 +1,6 @@
 cask "mongodb-compass" do
-  version "1.26.1"
-  sha256 "9965f1efa500803ee304167a286751bb69a527d6ef2c74819d2077bef06234dd"
+  version "1.28.1"
+  sha256 "7c84432ec8378e06efd6b18b26b5ad4b6c470705a354f4602e32fad3f673e9ba"
 
   url "https://downloads.mongodb.com/compass/mongodb-compass-#{version}-darwin-x64.dmg"
   name "MongoDB Compass"
@@ -9,8 +9,7 @@ cask "mongodb-compass" do
 
   livecheck do
     url "https://info-mongodb-com.s3.amazonaws.com/com-download-center/compass.json"
-    strategy :page_match
-    regex(/"version"\s*:\s*"(\d+(?:\.\d+)*)\s*/i)
+    regex(/"version"\s*:\s*"(\d+(?:\.\d+)+)\s*\(Stable/i)
   end
 
   app "MongoDB Compass.app"

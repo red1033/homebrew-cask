@@ -1,12 +1,12 @@
 cask "pycharm-edu" do
-  version "2021.1,211.7142.37"
+  version "2021.2,212.4746.137"
 
   if Hardware::CPU.intel?
-    sha256 "88cdd8d9afaed9c6d2792d952ca1568892901e76cffd111d163f26d27a2cc3cd"
+    sha256 "50b38606c347846c40823502a54d3225e9a9a4bdfcf8e318489fa22df2b0c0eb"
 
     url "https://download.jetbrains.com/python/pycharm-edu-#{version.before_comma}.dmg"
   else
-    sha256 "8d972d603b07f6ba052eaf3ef4d7536099ec1c05ba14b6b77c836e1aebd8f83f"
+    sha256 "9ebd135bea5174ac22d15be1a040d98af7a5bba8fb80de0d75e43d638215d5ce"
 
     url "https://download.jetbrains.com/python/pycharm-edu-#{version.before_comma}-aarch64.dmg"
   end
@@ -19,13 +19,14 @@ cask "pycharm-edu" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=PCE&latest=true&type=release"
     strategy :page_match do |page|
-      version = page.match(/"version":"(\d+(?:\.\d+)*)/i)
-      build = page.match(/"build":"(\d+(?:\.\d+)*)/i)
-      "#{version[1]},#{build[1]}"
+      JSON.parse(page)["PCE"].map do |release|
+        "#{release["version"]},#{release["build"]}"
+      end
     end
   end
 
   auto_updates true
+  depends_on macos: ">= :el_capitan"
 
   app "PyCharm Edu.app"
 

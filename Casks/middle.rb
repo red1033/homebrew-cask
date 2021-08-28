@@ -1,6 +1,6 @@
 cask "middle" do
-  version "1.5.23,57"
-  sha256 "4ac25999eb80969e114f5c7ae4c2260454bea447b29a0408f2b94168b2353893"
+  version "1.6.1,64"
+  sha256 "ebfefea8537acf5fa50b5c785115de3503ce9cee0ab61a86595057b454646149"
 
   url "https://middleclick.app/downloads/Middle#{version.before_comma}.dmg"
   name "Middle"
@@ -13,16 +13,17 @@ cask "middle" do
   end
 
   auto_updates true
+  depends_on macos: ">= :sierra"
 
   app "Middle.app"
 
   uninstall quit: "com.knollsoft.Middle"
 
   zap trash: [
-    "~/Library/Containers/com.knollsoft.MiddleLauncher",
-    "~/Library/Preferences/com.knollsoft.Middle.plist",
-    "~/Library/Caches/com.knollsoft.Middle",
-    "~/Library/Cookies/com.knollsoft.Middle.binarycookies",
     "~/Library/Application Support/Middle",
+    "~/Library/Caches/com.knollsoft.Middle",
+    "~/Library/Containers/com.knollsoft.MiddleLauncher",
+    "~/Library/Cookies/com.knollsoft.Middle.binarycookies",
+    "~/Library/Preferences/com.knollsoft.Middle.plist",
   ]
 end

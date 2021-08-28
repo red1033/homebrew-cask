@@ -1,17 +1,29 @@
 cask "figma" do
-  version "97.7.0"
-  sha256 "af7cbcbd8e8d6a2c61d3501a253d698b228b04c977a48ecc8308793fa08bb31c"
+  version "101.6.0"
 
-  url "https://desktop.figma.com/mac/Figma-#{version}.zip"
+  if Hardware::CPU.intel?
+    sha256 "1b87be8f35b58d260ffb9dd75127d85ec33fba6b0376bb4840838ed9f88abb55"
+
+    url "https://desktop.figma.com/mac/Figma-#{version}.zip"
+
+    livecheck do
+      url "https://desktop.figma.com/mac/RELEASE.json"
+      regex(%r{/Figma[._-]v?(\d+(?:\.\d+)+)\.zip}i)
+    end
+  else
+    sha256 "4ea81297fbaecb2a5255b78ffddb6025b80ab38a7dc1ca76a4679fa2a3e953f0"
+
+    url "https://desktop.figma.com/mac-arm/Figma-#{version}.zip"
+
+    livecheck do
+      url "https://desktop.figma.com/mac-arm/RELEASE.json"
+      regex(%r{/Figma[._-]v?(\d+(?:\.\d+)+)\.zip}i)
+    end
+  end
+
   name "Figma"
   desc "Collaborative team software"
   homepage "https://www.figma.com/"
-
-  livecheck do
-    url "https://desktop.figma.com/mac/RELEASE.json"
-    strategy :page_match
-    regex(%r{/Figma-(\d+(?:\.\d+)*)\.zip}i)
-  end
 
   auto_updates true
 

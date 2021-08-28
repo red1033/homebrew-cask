@@ -1,6 +1,6 @@
 cask "tinymediamanager" do
-  version "4.1.4"
-  sha256 "b33a3839fd28e5d3dbb03192413771dd0e6236d778b33b289d4192af529317e4"
+  version "4.1.6"
+  sha256 "26a1546b75bf13769840da2d7a7e79ccef2423d141685eb19ee8af7aa650be6d"
 
   url "https://release.tinymediamanager.org/v#{version.major}/dist/tmm_#{version}_mac.zip"
   name "tinyMediaManager"
@@ -9,15 +9,10 @@ cask "tinymediamanager" do
 
   livecheck do
     url "https://release.tinymediamanager.org/"
-    strategy :page_match
-    regex(%r{href=.*?/tmm_(\d+(?:\.\d+)*)_mac\.zip}i)
+    regex(%r{href=.*?/tmm[._-]v?(\d+(?:\.\d+)+)[._-]mac\.zip}i)
   end
 
   auto_updates true
 
   app "tinyMediaManager.app"
-
-  caveats do
-    depends_on_java "8+"
-  end
 end

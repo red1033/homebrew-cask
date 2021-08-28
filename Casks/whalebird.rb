@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 cask "whalebird" do
-  version "4.4.0"
-  sha256 "d0c15c7364dcda0d3a7a5678120d3bc4e21342f75984be1f35b8f31e27dd7445"
+  version "4.4.2"
+  sha256 "feea08883ef1bb81b4a02a6bd858d2de86b59a2620a9d6a1e8f5653c0c0f04dc"
 
   url "https://github.com/h3poteto/whalebird-desktop/releases/download/#{version}/Whalebird-#{version}-darwin-universal.dmg",
       verified: "github.com/h3poteto/whalebird-desktop/"
@@ -11,4 +9,11 @@ cask "whalebird" do
   homepage "https://whalebird.social/"
 
   app "Whalebird.app"
+
+  zap trash: [
+    "~/Library/Application Support/Whalebird",
+    "~/Library/Logs/Whalebird",
+    "~/Library/Preferences/org.whalebird.desktop.plist",
+    "~/Library/Saved Application State/org.whalebird.desktop.savedState",
+  ]
 end

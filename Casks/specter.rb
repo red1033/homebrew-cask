@@ -1,6 +1,6 @@
 cask "specter" do
-  version "1.3.1"
-  sha256 "4307f0fcd4c74c2ef83be05a882098d435e806af24d6e8dbb4de05a0b6c18b49"
+  version "1.5.1"
+  sha256 "af6fc3bad1dfe59980d4b3aeb988f0dd2bb3fc5ae98bcddc20bbf8b36538b200"
 
   url "https://github.com/cryptoadvance/specter-desktop/releases/download/v#{version}/SpecterDesktop-v#{version}.dmg",
       verified: "github.com/cryptoadvance/specter-desktop/"

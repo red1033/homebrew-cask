@@ -1,6 +1,6 @@
 cask "netxms-console" do
-  version "3.8.262"
-  sha256 "3f3d11266c76829702b5585f91c3f7127e59133b5c0415c4af155a06497b6d62"
+  version "3.9.176"
+  sha256 "fa4b0503b19d1910facef2596eda3e8e7504d0d7f625ab77e3072600738c7f80"
 
   url "https://netxms.org/download/releases/#{version.major_minor}/nxmc-#{version}.dmg"
   name "NetXMS Management Console"
@@ -9,8 +9,7 @@ cask "netxms-console" do
 
   livecheck do
     url "https://netxms.org/download"
-    strategy :page_match
-    regex(%r{href=.*?/nxmc-(\d+(?:\.\d+)*)\.dmg}i)
+    regex(%r{href=.*?/nxmc[._-]v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   app "NetXMS Console (#{version}).app"

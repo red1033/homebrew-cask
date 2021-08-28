@@ -1,6 +1,6 @@
 cask "manictime" do
-  version "2.0.33"
-  sha256 "06205237e2b0a66e2cf68a293df2b0513fe4ffedd7e9b199273d4e517120f661"
+  version "2.1.2"
+  sha256 "4707b62865d984bc0c1a59bcb7732533e15d8db51b6b50fb68b7c611a694886f"
 
   url "https://cdn.manictime.com/setup/mac/ManicTime-v#{version}.dmg"
   name "ManicTime"
@@ -9,8 +9,7 @@ cask "manictime" do
 
   livecheck do
     url "https://www.manictime.com/mac/download"
-    strategy :page_match
-    regex(%r{href=.*?/ManicTime-v(\d+(?:\.\d+)*)\.dmg}i)
+    regex(%r{href=.*?/ManicTime[._-]v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   depends_on macos: ">= :sierra"

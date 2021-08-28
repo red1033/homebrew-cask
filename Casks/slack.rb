@@ -1,13 +1,13 @@
 cask "slack" do
-  version "4.16.0"
+  version "4.19.0"
 
   if Hardware::CPU.intel?
-    sha256 "bf2ffeed356699723180fdcdf331dc82caa1bc63ca7b60774aca7df574220e1d"
+    sha256 "4fbb9b6f0d08211d72cfe377e12e5b663420208ad69c6eb44a46add8210d4536"
 
     url "https://downloads.slack-edge.com/releases/macos/#{version}/prod/x64/Slack-#{version}-macOS.dmg",
         verified: "downloads.slack-edge.com/"
   else
-    sha256 "b51f2d494f6daad93031147e688f245d0a34447e9cea91afc0faf265544d6177"
+    sha256 "fba05bc86f380642b41822db343e87ec516ffced9a3cbc72c5377befdb0a7ad7"
 
     url "https://downloads.slack-edge.com/releases/macos/#{version}/prod/arm64/Slack-#{version}-macOS.dmg",
         verified: "downloads.slack-edge.com/"
@@ -40,6 +40,7 @@ cask "slack" do
     "~/Library/Cookies/com.tinyspeck.slackmacgap.binarycookies",
     "~/Library/Group Containers/*.com.tinyspeck.slackmacgap",
     "~/Library/Group Containers/*.slack",
+    "~/Library/HTTPStorages/com.tinyspeck.slackmacgap.binarycookies",
     "~/Library/Logs/Slack",
     "~/Library/Preferences/ByHost/com.tinyspeck.slackmacgap.ShipIt.*.plist",
     "~/Library/Preferences/com.tinyspeck.slackmacgap.helper.plist",

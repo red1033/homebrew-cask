@@ -1,5 +1,5 @@
 cask "avast-secure-browser" do
-  version "90.0.704.86"
+  version "92.0.1082.132"
   sha256 :no_check
 
   url "https://cdn-download.avastbrowser.com/AvastSecureBrowserSetup.pkg",

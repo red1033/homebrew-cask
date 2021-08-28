@@ -1,6 +1,6 @@
 cask "thunder" do
-  version "4.0.0.12079"
-  sha256 "e3afc8acb1bea5108fa9beb08a867b319355c534dc5529eec6df31bedf4983c3"
+  version "4.1.0.59970"
+  sha256 "7f4e199fa8fe81172d35117d23b11769af037a0de80c3e83f98eb32d7680c7fe"
 
   url "https://down.sandai.net/mac/thunder_#{version}.dmg",
       verified: "down.sandai.net/"
@@ -10,9 +10,8 @@ cask "thunder" do
   homepage "https://www.xunlei.com/"
 
   livecheck do
-    url :homepage
-    strategy :page_match
-    regex(/thunder_(\d+(?:\.\d+)*)\.dmg/i)
+    url "https://static-xl9-ssl.xunlei.com/json/mac_preferences.json"
+    regex(/appcast[._-]v?(\d+(?:\.\d+)+)\.xml/i)
   end
 
   auto_updates true
