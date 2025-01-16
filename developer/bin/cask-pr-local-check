@@ -38,10 +38,10 @@ pr_json = JSON.parse(URI(pr_api).read)
 
 abort "PR needs to have a single file" if pr_json.count != 1
 
-file_raw_url = pr_json[0]["raw_url"]
+file_raw_url = pr_json[0]["raw_url"].gsub("%2F", "/")
 file_name = File.basename(file_raw_url)
 local_file = File.join(Dir.mktmpdir, file_name)
 
 File.write(local_file, URI(file_raw_url).read)
-abort "Audit failed" unless system("brew", "audit", "--new-cask", local_file)
+abort "Audit failed" unless system("brew", "audit", "--new", local_file)
 abort "Style check failed" unless system("brew", "style", local_file)

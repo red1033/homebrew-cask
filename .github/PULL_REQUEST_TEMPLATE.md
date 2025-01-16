@@ -1,16 +1,19 @@
 **Important:** *Do not tick a checkbox if you haven’t performed its action.* Honesty is indispensable for a smooth review process.
 
-After making all changes to a cask, verify:
+_In the following questions `<cask>` is the token of the cask you're submitting._
+
+After making any changes to a cask, existing or new, verify:
 
 - [ ] The submission is for [a stable version](https://docs.brew.sh/Acceptable-Casks#stable-versions) or [documented exception](https://docs.brew.sh/Acceptable-Casks#but-there-is-no-stable-version).
-- [ ] `brew audit --cask {{cask_file}}` is error-free.
-- [ ] `brew style --fix {{cask_file}}` reports no offenses.
+- [ ] `brew audit --cask --online <cask>` is error-free.
+- [ ] `brew style --fix <cask>` reports no offenses.
 
 Additionally, **if adding a new cask**:
 
-- [ ] Named the cask according to the [token reference](https://github.com/Homebrew/homebrew-cask/blob/master/doc/cask_language_reference/token_reference.md).
-- [ ] Checked the cask was not [already refused](https://github.com/Homebrew/homebrew-cask/search?q=is%3Aclosed&type=Issues).
-- [ ] Checked the cask is submitted to [the correct repo](https://github.com/Homebrew/homebrew-cask/blob/master/doc/development/adding_a_cask.md#finding-a-home-for-your-cask).
-- [ ] `brew audit --new-cask {{cask_file}}` worked successfully.
-- [ ] `brew install --cask {{cask_file}}` worked successfully.
-- [ ] `brew uninstall --cask {{cask_file}}` worked successfully.
+- [ ] Named the cask according to the [token reference](https://docs.brew.sh/Cask-Cookbook#token-reference).
+- [ ] Checked the cask was not [already refused](https://github.com/search?q=repo%3AHomebrew%2Fhomebrew-cask+is%3Aclosed+is%3Aunmerged+&type=pullrequests) (add your cask's name to the end of the search field).
+- [ ] `brew audit --cask --new <cask>` worked successfully.
+- [ ] `HOMEBREW_NO_INSTALL_FROM_API=1 brew install --cask <cask>` worked successfully.
+- [ ] `brew uninstall --cask <cask>` worked successfully.
+
+---
